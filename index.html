@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pawan ❤️ Annu | Hamari Chhoti Si Duniya</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Playfair Display',serif;
+  background:radial-gradient(circle at top,#ff9dbb 0%,#8a1538 45%,#2b0610 100%);
+  color:#fff;
+  overflow-x:hidden;
+}
+
+section{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:60px 20px;
+}
+
+.hero{text-align:center;max-width:520px}
+.hero h1{
+  font-family:'Great Vibes';
+  font-size:60px;
+  margin-bottom:16px;
+}
+.hero p{font-family:'Inter';opacity:.9}
+
+.cta{
+  margin-top:40px;
+  padding:16px 46px;
+  border-radius:60px;
+  border:none;
+  background:rgba(255,255,255,.25);
+  backdrop-filter:blur(20px);
+  color:#fff;
+  font-size:16px;
+  cursor:pointer;
+}
+
+/* CALENDAR */
+.calendar{
+  margin-top:30px;
+  width:320px;
+  background:rgba(255,255,255,.22);
+  backdrop-filter:blur(25px);
+  border-radius:40px;
+  padding:25px;
+}
+.cal-header{text-align:center;margin-bottom:15px;font-family:'Inter'}
+.week,.days{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+.day{
+  height:42px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  opacity:.6;
+}
+.day.heart{
+  background:#ff5c8a;
+  opacity:1;
+  cursor:pointer;
+}
+
+/* POEM */
+.poem{
+  max-width:900px;
+  width:100%;
+  background:rgba(255,255,255,.22);
+  backdrop-filter:blur(30px);
+  padding:50px 25px;
+  border-radius:40px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+.line{
+  opacity:0;
+  transform:translateY(20px);
+  transition:.7s;
+  margin-bottom:26px;
+  font-size:18px;
+  text-align:center;
+}
+.line.show{opacity:1;transform:none}
+
+/* FINAL */
+.final{
+  background:rgba(255,255,255,.25);
+  backdrop-filter:blur(30px);
+  padding:50px 30px;
+  border-radius:40px;
+  text-align:center;
+}
+.final h2{
+  font-family:'Great Vibes';
+  font-size:48px;
+}
+.timer{
+  margin-top:25px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+}
+.time-box{
+  background:rgba(255,255,255,.3);
+  border-radius:18px;
+  padding:16px 8px;
+}
+.time-box span{font-size:24px;font-family:'Inter'}
+.signature{margin-top:25px}
+
+@media(max-width:600px){
+  .hero h1{font-size:42px}
+}
+@media (max-width: 600px) {
+
+  /* POEM CARD BIGGER */
+  .poem{
+    width: 100%;
+    max-width: 100%;
+    padding: 60px 24px;     /* pehle 50px 25px tha */
+    border-radius: 34px;
+  }
+
+  .line{
+    font-size: 20px;       /* pehle 18px */
+    line-height: 1.9;
+    margin-bottom: 32px;
+  }
+
+  /* CTA BUTTON */
+  .cta{
+    padding: 18px 48px;
+    font-size: 17px;
+  }
+
+  /* FINAL CARD */
+  .final{
+    width: 100%;
+    max-width: 100%;
+    padding: 60px 24px;
+    border-radius: 34px;
+  }
+
+  .final h2{
+    font-size: 44px;
+  }
+
+  .timer{
+    gap: 16px;
+  }
+
+  .time-box{
+    padding: 20px 10px;
+    border-radius: 20px;
+  }
+
+  .time-box span{
+    font-size: 26px;
+  }
+}
+.poem, .final{
+  box-shadow: 0 25px 60px rgba(0,0,0,.35);
+}
+/* FLOATING FX CONTAINER */
+#fx{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+}
+
+/* HEART */
+.fx-heart{
+  position:absolute;
+  font-size:20px;
+  animation: floatUp 10s linear forwards;
+  opacity:.9;
+}
+
+/* BUTTERFLY */
+.fx-butterfly{
+  position:absolute;
+  font-size:22px;
+  animation: fly 12s linear forwards;
+  opacity:.85;
+}
+
+.fx-butterfly{
+  position:absolute;
+  font-size:22px;
+  animation: fly 12s linear forwards;
+  opacity:.9;
+
+  /* FORCE BLUE LOOK */
+  filter: hue-rotate(210deg) saturate(2);
+  text-shadow: 0 0 10px rgba(0,180,255,.8),
+               0 0 20px rgba(0,120,255,.6);
+}
+
+
+/* HEART FLOAT */
+@keyframes floatUp{
+  from{
+    transform:translateY(0) scale(.6);
+    opacity:1;
+  }
+  to{
+    transform:translateY(-120vh) scale(1.4);
+    opacity:0;
+  }
+}
+
+/* BUTTERFLY FLY */
+@keyframes fly{
+  0%{
+    transform:translate(0,0) scale(.6) rotate(0deg);
+    opacity:1;
+  }
+  50%{
+    transform:translate(40px,-60vh) scale(1) rotate(10deg);
+  }
+  100%{
+    transform:translate(-40px,-120vh) scale(1.3) rotate(-10deg);
+    opacity:0;
+  }
+}
+
+/* MOBILE SAFE */
+@media(max-width:600px){
+  .fx-heart{font-size:18px}
+  .fx-butterfly{font-size:20px}
+}
+
+</style>
+</head>
+
+<body>
+<div id="fx"></div>
+
+<!-- SECTION 1 -->
+<section id="s1">
+  <div class="hero">
+    <h1>Lost in Each Other, Found in Love 💍</h1>
+    <p>Aaj hamari engagement ko ek mahina ho gaya…<br>aur yeh sab tumhare liye ❤️</p>
+    <button class="cta" onclick="showCalendar()">Open our memory 📅</button>
+  </div>
+</section>
+
+<!-- CALENDAR -->
+<section id="sCal" style="display:none">
+  <div class="hero">
+    <h1>The Beginning 💞</h1>
+        <p>Jis din sab kuch shuru hua</p>
+
+    <div class="calendar">
+      <div class="cal-header">NOVEMBER</div>
+      <div class="week">
+        <div>M</div><div>T</div><div>W</div><div>T</div><div>F</div><div>S</div><div>S</div>
+      </div>
+      <div class="days">
+        <div></div><div></div><div></div><div></div>
+        <div>1</div><div>2</div><div>3</div>
+        <div>4</div><div>5</div><div>6</div><div>7</div>
+        <div>8</div><div>9</div><div>10</div>
+        <div>11</div><div>12</div><div>13</div><div>14</div>
+        <div>15</div>
+        <div class="day heart" onclick="openPoem()">16</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<audio id="bgMusic" src="https://behtreen.in/wp-content/uploads/2025/12/aa.mp3" loop></audio>
+
+<!-- POEM -->
+<section id="s2" style="display:none">
+  <div class="poem">
+    <div class="line">Haath pe pehla love-bite, dil ke nishaan ke saath chhupa,</div>
+    <div class="line">Us din samjha Majnu ko, ishq ka matlab kya hota hai bhala.</div>
+    <div class="line">Subah ke 5 baje wali chai, neend se bhi zyada pyaari thi,</div>
+    <div class="line">Kyuki us cup ke saath tumhari awaaz bhi saath hamari thi.</div>
+    <div class="line">Raat bhar baatein, baaton me hi khud ko kho dena,</div>
+    <div class="line">Phir subah uthte hi pehla kaam—tumhe hi jagana.</div>
+    <div class="line">Do baje ka intezaar, jaise roz ka imtihaan hota tha,</div>
+    <div class="line">Lunch time ka tumhara call, din ka sabse khaas samaa hota tha.</div>
+    <div class="line">Meri chhoti si galti pe tumhara gussa, muh phula lena,</div>
+    <div class="line">Par thodi der baad pyaar se 'Laddu' keh kar sab bhula dena.</div>
+    <div class="line">Saath bitaya har pal hi hamara favourite pal ban gaya,</div>
+    <div class="line">Aur jab tum mere kandhon pe soyi, toh lagaa sab mil gaya.</div>
+    <div class="line">Annu, yeh sirf yaadein nahi, meri zindagi ka hisaab hain,</div>
+    <div class="line">Majnu hoon tumhara, aaj bhi aur  kal bhi—yeh mera khwaab hai. ❤️</div>
+
+    <button class="cta" id="openTimerBtn" style="display:none;">
+      Our Forever Begins 💞
+    </button>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section id="s3" style="display:none">
+  <div class="final">
+    <h2>Since 16 Nov 2025</h2>
+    <p>Har pal, har second — tumhare naam</p>
+    <div class="timer">
+      <div class="time-box"><span id="d">0</span><label>Days</label></div>
+      <div class="time-box"><span id="h">0</span><label>Hours</label></div>
+      <div class="time-box"><span id="m">0</span><label>Min</label></div>
+      <div class="time-box"><span id="s">0</span><label>Sec</label></div>
+    </div>
+    <div class="signature">— Forever yours,<br><b>Pawan (Ladduu) ❤️</b></div>
+  </div>
+</section>
+<script>
+const fx = document.getElementById('fx');
+
+/* RED HEARTS */
+setInterval(()=>{
+  const h=document.createElement('div');
+  h.className='fx-heart';
+  h.innerHTML='❤️';
+  h.style.left=Math.random()*window.innerWidth+'px';
+  h.style.bottom='-30px';
+  fx.appendChild(h);
+  setTimeout(()=>h.remove(),10000);
+},1200);
+
+/* BLUE BUTTERFLIES */
+setInterval(()=>{
+  const b=document.createElement('div');
+  b.className='fx-butterfly';
+  b.innerHTML='🦋';
+  b.style.left=Math.random()*window.innerWidth+'px';
+  b.style.bottom='-40px';
+  fx.appendChild(b);
+  setTimeout(()=>b.remove(),12000);
+},2200);
+</script>
+
+<script>
+const s1=document.getElementById('s1');
+const sCal=document.getElementById('sCal');
+const s2=document.getElementById('s2');
+const s3=document.getElementById('s3');
+const bgMusic=document.getElementById('bgMusic');
+
+function showCalendar(){
+  s1.style.display='none';
+  sCal.style.display='flex';
+}
+
+function openPoem(){
+  const pass=prompt("Enter Password 🔒 Aage badhne ke liye ek special word chahiye 💗");
+  if(pass!=="Ladduu"){
+    alert("Hint: jo tum mujhe pyar se bolti ho...Pgli 😉💞");
+    return;
+  }
+
+  sCal.style.display='none';
+  s2.style.display='flex';
+  bgMusic.play();
+
+  const lines=document.querySelectorAll('.line');
+  const btn=document.getElementById('openTimerBtn');
+
+  lines.forEach((l,i)=>{
+    setTimeout(()=>{
+      l.classList.add('show');
+      if(i===lines.length-1){
+        setTimeout(()=>btn.style.display='inline-block',800);
+      }
+    },i*400);
+  });
+
+  btn.onclick=()=>{
+    s2.style.display='none';
+    s3.style.display='flex';
+    startTimer();
+  }
+}
+
+function startTimer(){
+  const start=new Date("2025-11-16T00:00:00");
+  setInterval(()=>{
+    let diff=Math.floor((new Date()-start)/1000);
+    document.getElementById('d').innerText=Math.floor(diff/86400);
+    diff%=86400;
+    document.getElementById('h').innerText=Math.floor(diff/3600);
+    diff%=3600;
+    document.getElementById('m').innerText=Math.floor(diff/60);
+    document.getElementById('s').innerText=diff%60;
+  },1000);
+}
+</script>
+
+</body>
+</html>
